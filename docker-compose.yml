@@ -1,5 +1,21 @@
 version: '3'
 services:
+  psql:
+    container_name: psql
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db
+      POSTGRES_HOST: localhost
+    networks:
+      - default
+
   api:
     container_name: api
     build:
@@ -10,3 +26,8 @@ services:
       - default
     ports:
       - "8080:8080"
+    depends_on:
+      - psql
+
+volumes:  
+  pgdata: {}
