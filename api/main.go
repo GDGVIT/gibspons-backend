@@ -9,11 +9,10 @@ import (
 
 func init() {
 	config.LoadConfigs()
+	database.AutoMigrate()
 }
 
 func main() {
-	_ = database.Connection()
-
 	r := gin.Default()
 
 	// mapping all routes

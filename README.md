@@ -28,7 +28,9 @@
 ## Running
 
 ```bash
-docker compose up
+$ docker pull golang:alpine
+$ docker pull postgres
+$ docker compose up
 ```
 
 ## Contributors
