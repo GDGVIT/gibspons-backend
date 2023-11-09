@@ -12,4 +12,5 @@ func MapRoutes(r *gin.Engine) {
 	userGroup := v1.Group("/users")
 
 	userGroup.POST("/signup", controllers.Signup)
+	userGroup.POST("/login", controllers.Login)
 }

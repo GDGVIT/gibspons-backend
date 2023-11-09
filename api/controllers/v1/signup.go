@@ -19,12 +19,14 @@ func Signup(c *gin.Context) {
 
 	if err := c.Bind(&body); err != nil {
 		utility.GinCtxError(c, "Failed to create user, check user body")
+		return
 	}
 
 	var hashPass string
 	var err error
 	if hashPass, err = utility.HashPassword(body.Password); err != nil {
 		utility.GinCtxError(c, "Failed to hash password")
+		return
 	}
 
 	user := tables.Users{
@@ -36,6 +38,7 @@ func Signup(c *gin.Context) {
 
 	if err := database.CreateUser(&user); err != nil {
 		utility.GinCtxError(c, "Failed to create user, check db logs")
+		return
 	}
 
 	c.JSON(http.StatusCreated, gin.H{
