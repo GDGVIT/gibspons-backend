@@ -9,7 +9,7 @@ func main() {
 	r := gin.Default()
 
 	// mapping all routes
-	controllers.MapRoutes()
+	controllers.MapRoutes(r)
 
 	r.Run()
 }
