@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/GDGVIT/gibspons-backend/config"
 	"github.com/GDGVIT/gibspons-backend/controllers"
+	"github.com/GDGVIT/gibspons-backend/database"
 	"github.com/gin-gonic/gin"
 )
 
@@ -11,6 +12,8 @@ func init() {
 }
 
 func main() {
+	_ = database.Connection()
+
 	r := gin.Default()
 
 	// mapping all routes
