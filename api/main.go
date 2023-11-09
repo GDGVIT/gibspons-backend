@@ -9,6 +9,7 @@ import (
 
 func init() {
 	config.LoadConfigs()
+	database.ConnectDB()
 	database.AutoMigrate()
 }
 

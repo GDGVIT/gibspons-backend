@@ -8,7 +8,9 @@ import (
 	"gorm.io/gorm"
 )
 
-func Connection() *gorm.DB {
+var DB *gorm.DB
+
+func ConnectDB() {
 	dsn := "host=" + config.DB.Host +
 		" user=" + config.DB.Username +
 		" password=" + config.DB.Password +
@@ -20,6 +22,6 @@ func Connection() *gorm.DB {
 	if err != nil {
 		log.Fatal("[Connection], Error in opening db")
 	}
-
-	return db
+	DB = db
+	log.Println("[CONNECTION] Database connection established")
 }

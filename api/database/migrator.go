@@ -9,7 +9,7 @@ import (
 func AutoMigrate() {
 	var users tables.Users
 
-	db := Connection()
+	db := DB
 
 	if err := db.AutoMigrate(&users); err != nil {
 		log.Fatal("[MIGRATOR] Users Migration Failed")
