@@ -13,4 +13,9 @@ func MapRoutes(r *gin.Engine) {
 
 	userGroup.POST("/signup", controllers.Signup)
 	userGroup.POST("/login", controllers.Login)
+
+	// <----------- SPONSORSHIP ROUTES -------------->
+	sponGroup := v1.Group("/sponsorships")
+
+	sponGroup.POST("/create", controllers.CreateSponsorship)
 }
