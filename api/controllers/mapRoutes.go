@@ -19,6 +19,7 @@ func MapRoutes(r *gin.Engine) {
 
 	sponGroup.POST("/create", controllers.CreateSponsorship)
 	sponGroup.GET("/", controllers.GetSponsorships)
+	sponGroup.GET("/", controllers.GetSponsorshipById)
 	sponGroup.GET("/update", controllers.UpdateSponsorshipStatus)
 	sponGroup.DELETE("/", controllers.DeleteSponsorship)
 

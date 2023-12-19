@@ -40,6 +40,23 @@ func CreateSponsorship(c *gin.Context) {
 	})
 }
 
+func GetSponsorshipById(c *gin.Context) {
+	id, exists := c.GetQuery("id")
+	if !exists {
+		utility.GinCtxError(c, "Please pass in ID")
+		return
+	}
+	idInt, _ := strconv.Atoi(id)
+	spon, err := database.GetSponsorshipById(idInt)
+	if err != nil {
+		utility.GinCtxError(c, err.Error())
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"sponsorship": spon,
+	})
+}
+
 func GetSponsorships(c *gin.Context) {
 	pocid, exists := c.GetQuery("pocid")
 	if !exists {
