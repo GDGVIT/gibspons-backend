@@ -40,7 +40,7 @@ $ docker compose up
 		<td>
 		Soham Ghugare
 		<p align="center">
-			<img src = "https://dscvit.com/images/dsc-logo-square.svg" width="150" height="150" alt="Soham Ghugare">
+			<img src = "https://imgur.com/a/D1XeusQ" width="150" height="150" alt="Soham Ghugare">
 		</p>
 			<p align="center">
 				<a href = "https://github.com/SohamGhugare">
