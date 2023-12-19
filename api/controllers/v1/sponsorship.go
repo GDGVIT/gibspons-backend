@@ -41,11 +41,7 @@ func CreateSponsorship(c *gin.Context) {
 }
 
 func GetSponsorshipById(c *gin.Context) {
-	id, exists := c.GetQuery("id")
-	if !exists {
-		utility.GinCtxError(c, "Please pass in ID")
-		return
-	}
+	id := c.Param("id")
 	idInt, _ := strconv.Atoi(id)
 	spon, err := database.GetSponsorshipById(idInt)
 	if err != nil {
