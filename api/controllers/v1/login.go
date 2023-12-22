@@ -25,7 +25,7 @@ func Login(c *gin.Context) {
 		return
 	}
 
-	verified, err := utility.VerifyPassword(user.Password, body.Password)
+	verified, err := utility.VerifyPassword(string(user.Password), body.Password)
 
 	if !verified || err != nil {
 		utility.GinCtxError(c, "Invalid Password")

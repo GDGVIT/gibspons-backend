@@ -33,7 +33,7 @@ func Signup(c *gin.Context) {
 		Name:     body.Name,
 		Email:    body.Email,
 		Phone:    body.Phone,
-		Password: hashPass,
+		Password: []byte(hashPass),
 	}
 
 	if err := database.CreateUser(&user); err != nil {
