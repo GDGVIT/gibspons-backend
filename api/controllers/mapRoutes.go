@@ -24,4 +24,10 @@ func MapRoutes(r *gin.Engine) {
 	sponGroup.GET("/update", controllers.UpdateSponsorshipStatus)
 	sponGroup.DELETE("/", controllers.DeleteSponsorship)
 
+	// <---------- UPDATE ROUTES ------------->
+	updateGroup := v1.Group("/updates")
+
+	updateGroup.POST("/add", controllers.AddUpdate)
+	updateGroup.GET("/:id", controllers.GetUpdates)
+
 }

@@ -9,11 +9,15 @@ import (
 func AutoMigrate() {
 	var users tables.Users
 	var sponsorships tables.Sponsorships
+	var updates tables.Updates
 
 	db := DB
 
 	if err := db.AutoMigrate(&users); err != nil {
 		log.Fatal("[MIGRATOR] Users Migration Failed")
+	}
+	if err := db.AutoMigrate(&updates); err != nil {
+		log.Fatal("[MIGRATOR] Updates Migration Failed")
 	}
 
 	if err := db.AutoMigrate(&sponsorships); err != nil {
