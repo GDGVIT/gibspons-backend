@@ -48,7 +48,7 @@ func UpdateSponsorshipEmail(id int, email string) error {
 		return tx.Error
 	}
 
-	spon.Email = email
+	spon.CurrentEmail = email
 	tx = database.DB.Save(spon)
 	return tx.Error
 }

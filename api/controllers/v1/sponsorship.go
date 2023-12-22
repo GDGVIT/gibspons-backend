@@ -24,10 +24,10 @@ func CreateSponsorship(c *gin.Context) {
 	}
 
 	spon := tables.Sponsorships{
-		PocID:       body.PocID,
-		Email:       body.Email,
-		Description: body.Description,
-		Status:      body.Status,
+		PocID:        body.PocID,
+		CurrentEmail: body.Email,
+		Description:  body.Description,
+		Status:       body.Status,
 	}
 
 	if err := database.CreateSponsorship(&spon); err != nil {
