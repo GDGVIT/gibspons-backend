@@ -13,6 +13,7 @@ import (
 func CreateSponsorship(c *gin.Context) {
 	var body struct {
 		PocID       int
+		CompanyName string
 		Email       string
 		Description string
 		Status      string
@@ -25,6 +26,7 @@ func CreateSponsorship(c *gin.Context) {
 
 	spon := tables.Sponsorships{
 		PocID:        body.PocID,
+		CompanyName:  body.CompanyName,
 		CurrentEmail: body.Email,
 		Description:  body.Description,
 		Status:       body.Status,
