@@ -55,6 +55,18 @@ func GetSponsorshipById(c *gin.Context) {
 	})
 }
 
+func GetSponsorshipsByCompanyName(c *gin.Context) {
+	name := c.Query("name")
+	spons, err := database.GetSponsorshipsByCompanyName(name)
+	if err != nil {
+		utility.GinCtxError(c, err.Error())
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"sponsorships": spons,
+	})
+}
+
 func GetSponsorships(c *gin.Context) {
 	pocid, exists := c.GetQuery("pocid")
 	if !exists {

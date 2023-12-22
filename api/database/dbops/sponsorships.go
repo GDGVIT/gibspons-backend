@@ -27,6 +27,13 @@ func GetSponsorshipById(id int) (tables.Sponsorships, error) {
 	return spon, tx.Error
 }
 
+// get all spons associated with company name
+func GetSponsorshipsByCompanyName(name string) ([]tables.Sponsorships, error) {
+	var spons []tables.Sponsorships
+	tx := database.DB.Find(&spons, "company_name = ?", name)
+	return spons, tx.Error
+}
+
 // update spon status
 func UpdateSponsorshipStatus(id int, status string) error {
 	var spon tables.Sponsorships
